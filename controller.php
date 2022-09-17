@@ -18,7 +18,8 @@ array_push($_SESSION['listkaryawan']);
 function index(){
 
 return $_SESSION['listkaryawan'];
-
+asdasdas
+dfaf
 }
 
 function delete($id){
