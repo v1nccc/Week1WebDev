@@ -16,7 +16,7 @@ array_push($_SESSION['listkaryawan']);
 }
 
 function index(){
-test
+
 return $_SESSION['listkaryawan'];
 
 }
