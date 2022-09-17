@@ -14,7 +14,7 @@ $karyawan -> usia = $_POST['usia'];
 array_push($_SESSION['listkaryawan']);
 
 }
-
+czzxccxz
 function index(){
 
 return $_SESSION['listkaryawan'];
