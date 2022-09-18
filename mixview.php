@@ -1,6 +1,6 @@
 <?php
 require("header.php");
-require("controller.php");
+require("mixcontroller.php");
 if(isset($_POST['submit'])){
   insert();
 }
@@ -25,20 +25,19 @@ if(isset($_GET['delete'])){
   <thead>
     <tr>
       <th scope="col">No</th>
-      <th scope="col">Nama</th>
-      <th scope="col">Jabatan</th>
-      <th scope="col">Usia</th>
-      <th scope="col">Delete</th>
+      <th scope="col">Office</th>
+      <th scope="col">Employee</th>
+     
     </tr>
   </thead>
   <tbody>
     <?php
-    foreach(index() as $index=>$karyawan)
+    foreach(indexmix() as $index=>$mix)
     {
       echo"
         <tr>    
 
-        <td>".$index."</td>
+        <td>".$_SESSION['listkaryawan']->nama."</td>
         <td>".$karyawan->nama."</td>
         <td>".$karyawan->jabatan."</td>
         <td>".$karyawan->usia."</td>
@@ -51,18 +50,16 @@ if(isset($_GET['delete'])){
 </table> 
 <h1 class="text-center mt-2"> Tambah Karyawan </h1>
 <form method="POST" action="view.php" class="mx-auto  mt-2 w-50">
-  <div class="mb-3">
-    <label for="nama" class="form-label">Nama</label>
-    <input name="nama" placeholder="Masukkan Nama" type="text" class="form-control" id="nama" required>
-  </div>
-  <div class="mb-3">
-    <label for="jabatan" class="form-label">Jabatan</label>
-    <input name="jabatan" placeholder="Masukkan Jabatan" type="text" class="form-control" id="jabatan" required>
-  </div>
-  <div class="mb-3">
-    <label for="usia" class="form-label">Usia</label>
-    <input name="usia" placeholder="Masukkan usia" type="number" class="form-control" id="usia" required>
-  </div>
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    Dropdown button
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+  </ul>
+</div>
  
 
   <button type="submit" name="submit" class="text-center d-block mx-auto btn btn-primary">Submit</button>
