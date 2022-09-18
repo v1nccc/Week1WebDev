@@ -1,5 +1,9 @@
 <?php
 require("controller.php");
+if(isset($_POST['submit'])){
+  insert();
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +33,6 @@ require("controller.php");
     {echo"
         <tr>    
 
-
         <td>".$index."</td>
         <td>".$karyawan->$nama."</td>
         <td>".$karyawan->$jabatan."</td>
@@ -42,5 +45,22 @@ require("controller.php");
   </tbody>
 </table> 
 <h1 class="text-center mt-2"> Tambah Karyawan </h1>
+<form method="POST" action="view.php" class="mx-auto  mt-2 w-50">
+  <div class="mb-3">
+    <label for="nama" class="form-label">Nama</label>
+    <input name="nama" placeholder="Masukkan Nama" type="text" class="form-control" id="nama">
+  </div>
+  <div class="mb-3">
+    <label for="jabatan" class="form-label">Jabatan</label>
+    <input name="jabatan" placeholder="Masukkan Jabatan" type="text" class="form-control" id="jabatan">
+  </div>
+  <div class="mb-3">
+    <label for="usia" class="form-label">Usia</label>
+    <input name="usia" placeholder="Masukkan usia" type="number" class="form-control" id="usia">
+  </div>
+ 
+
+  <button type="submit" name="submit" class="text-center d-block mx-auto btn btn-primary">Submit</button>
+</form>
 </body>
 </html>
