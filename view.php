@@ -2,8 +2,11 @@
 require("controller.php");
 if(isset($_POST['submit'])){
   insert();
-
 }
+if(isset($_GET['delete'])){
+  delete($_GET['delete']);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -30,14 +33,15 @@ if(isset($_POST['submit'])){
   <tbody>
     <?php
     foreach(index() as $index=>$karyawan)
-    {echo"
+    {
+      echo"
         <tr>    
 
         <td>".$index."</td>
-        <td>".$karyawan->$nama."</td>
-        <td>".$karyawan->$jabatan."</td>
-        <td>".$karyawan->$usia."</td>
-        <td><button class= ' btn btn-primary'> Delete </button></td>
+        <td>".$karyawan->nama."</td>
+        <td>".$karyawan->jabatan."</td>
+        <td>".$karyawan->usia."</td>
+        <td><a href='view.php?delete=".$index."'><button class='btn btn-primary'> Delete </button></a></td>
         </tr>
         ";
     }

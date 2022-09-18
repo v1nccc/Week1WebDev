@@ -1,7 +1,7 @@
 <?php 
 include("model.php");
 session_start();
-if(!isset($SESSION["listkaryawan"])){
+if(!isset($_SESSION['listkaryawan'])){
 $_SESSION['listkaryawan'] = array();
 }
 
@@ -11,7 +11,6 @@ $karyawan->nama = $_POST['nama'];
 $karyawan->jabatan = $_POST['jabatan'];
 $karyawan->usia = $_POST['usia'];
 array_push($_SESSION['listkaryawan'],$karyawan);
-
 }
 
 function index(){
