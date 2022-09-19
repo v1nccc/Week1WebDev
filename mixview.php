@@ -1,6 +1,7 @@
 <?php
 require("header.php");
 require("mixcontroller.php");
+require_once("controller.php");
 if(isset($_POST['submit'])){
   insert();
 }
@@ -50,24 +51,26 @@ if(isset($_GET['delete'])){
 </table> 
 <h1 class="text-center mt-2"> Tambah Karyawan </h1>
 <form method="POST" action="mixview.php" class="mx-auto  mt-2 w-50">
-  <h3>Karyawan </h3>
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    Dropdown button
-  </button>
-  <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
-  <?php  foreach(index() as $index=>$karyawan):?>
-    <li><a class="dropdown-item" href="#"><?= $karyawan->nama?></a></li>
+
+ <div class="form-group col-md-4">
+      <label for="inputkaryawanid">Karyawan</label>
+      <select id="inputkaryawanid" class="form-control">
+      <?php  foreach(index() as $index=>$karyawan):?>
+        <option><?=$karyawan->nama?></option>
   
     <?php endforeach; ?>
-  </ul>
-</div>
+       
+    </div>
+
+ 
+       
  
 
   <button type="submit" name="submit" class="text-center d-block mx-auto btn btn-primary">Submit</button>
 </form>
+<?php  foreach(index() as $index=>$karyawan):?>
+      <?= 'a' ?>
+  
+    <?php endforeach; ?>
 </body>
 </html>
