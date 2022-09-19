@@ -49,7 +49,8 @@ if(isset($_GET['delete'])){
   </tbody>
 </table> 
 <h1 class="text-center mt-2"> Tambah Karyawan </h1>
-<form method="POST" action="view.php" class="mx-auto  mt-2 w-50">
+<form method="POST" action="mixview.php" class="mx-auto  mt-2 w-50">
+  <h3> Nama </h3>
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
     Dropdown button
