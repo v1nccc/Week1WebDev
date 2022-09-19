@@ -50,15 +50,19 @@ if(isset($_GET['delete'])){
 </table> 
 <h1 class="text-center mt-2"> Tambah Karyawan </h1>
 <form method="POST" action="mixview.php" class="mx-auto  mt-2 w-50">
-  <!-- <h3> Nama </h3> -->
+  <h3>Karyawan </h3>
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
     Dropdown button
   </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
+  <select id="inputState" class="form-control">
+        <option selected>Choose...</option>
+        <option>...</option>
+      </select>
+  <?php  foreach(index() as $index=>$karyawan):?>
+    <li><a class="dropdown-item" href="#"><?= $karyawan->nama?></a></li>
+  
+    <?php endforeach; ?>
   </ul>
 </div>
  
