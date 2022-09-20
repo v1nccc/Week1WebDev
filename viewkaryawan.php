@@ -4,6 +4,9 @@ require("controllers.php");
 if(isset($_POST['submit'])){
   insert();
 }
+if(isset($_POST['edit'])){
+  editkaryawan(($_GET['edit']));
+}
 if(isset($_GET['delete'])){
   delete($_GET['delete']);
 }
@@ -43,8 +46,8 @@ if(isset($_GET['delete'])){
         <td>".$karyawan->nama."</td>
         <td>".$karyawan->jabatan."</td>
         <td>".$karyawan->usia."</td>
-        <td><a href='view.php?delete=".$index."'><button class='btn btn-primary'> Delete </button></a></td>
-        <td><a href='editemployee.php?edit=".$index."'><button class='btn btn-primary'> Edit </button></a></td>
+        <td><a href='viewkaryawan.php?delete=".$index."'><button class='btn btn-primary'> Delete </button></a></td>
+        <td><a href='editkaryawan.php?edit=".$index."'><button class='btn btn-primary'> Edit </button></a></td>
         </tr>
         ";
     }
@@ -52,7 +55,7 @@ if(isset($_GET['delete'])){
   </tbody>
 </table> 
 <h1 class="text-center mt-2"> Tambah Karyawan </h1>
-<form method="POST" action="view.php" class="mx-auto  mt-2 w-50">
+<form method="POST" action="viewkaryawan.php" class="mx-auto  mt-2 w-50">
   <div class="mb-3">
     <label for="nama" class="form-label">Nama</label>
     <input name="nama" placeholder="Masukkan Nama" type="text" class="form-control" id="nama" required>

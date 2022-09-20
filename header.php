@@ -10,7 +10,7 @@
 </head>
 <body>
 <nav class="pl-3 mb-3 navbar navbar-expand-lg navbar-light bg-light">
-  <a class="ml-3 navbar-brand" href="view.php">Employees</a>
+  <a class="ml-3 navbar-brand" href="viewkaryawan.php">Employees</a>
   <a class="navbar-brand" href="offview.php">Office </a>
   <a class="navbar-brand" href="mixview.php">Office-Employees</a>
 

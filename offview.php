@@ -4,6 +4,10 @@ require("controllers.php");
 if(isset($_POST['submit'])){
   insertoff();
 }
+if(isset($_POST['edit'])){
+  editoffice(($_GET['edit']));
+}
+
 if(isset($_GET['delete'])){
   deleteoff($_GET['delete']);
 }
@@ -30,6 +34,7 @@ if(isset($_GET['delete'])){
       <th scope="col">City</th>
       <th scope="col">Phone</th>
       <th scope="col">Delete</th>
+      <th scope="col">Edit</th>
     </tr>
   </thead>
   <tbody>
@@ -45,6 +50,7 @@ if(isset($_GET['delete'])){
         <td>".$office->city."</td>
         <td>".$office->phone."</td>
         <td><a href='offview.php?delete=".$index."'><button class='btn btn-primary'> Delete </button></a></td>
+        <td><a href='editoffice.php?edit=".$index."'><button class='btn btn-primary'> Edit </button></a></td>
         </tr>
         ";
     }

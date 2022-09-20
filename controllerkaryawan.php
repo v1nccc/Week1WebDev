@@ -27,4 +27,10 @@ function delete($id){
     unset($_SESSION['listmix'][$index]);
 }
 }
+
+function editkaryawan($id){
+    $_SESSION['listkaryawan'][$id]->nama= $_POST['nama'];
+    $_SESSION['listkaryawan'][$id]->jabatan= $_POST['jabatan'];
+    $_SESSION['listkaryawan'][$id]->usia= $_POST['usia'];
+    }
 ?>

@@ -31,4 +31,11 @@ function deleteoff($id){
 }
 }
 
+function editoffice($id){
+    $_SESSION['listoffice'][$id]->name= $_POST['name'];
+    $_SESSION['listoffice'][$id]->adress= $_POST['adress'];
+    $_SESSION['listoffice'][$id]->city= $_POST['city'];
+    $_SESSION['listoffice'][$id]->phone= $_POST['phone'];
+    }
+
 ?>
