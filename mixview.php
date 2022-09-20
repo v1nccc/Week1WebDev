@@ -1,9 +1,12 @@
 <?php
 require("header.php");
 require("mixcontroller.php");
-require_once("controller.php");
+require("offcontroller.php");
+require("controller.php");
+
+
 if(isset($_POST['submit'])){
-  insert();
+  insertmix();
 }
 if(isset($_GET['delete'])){
   delete($_GET['delete']);
@@ -21,14 +24,17 @@ if(isset($_GET['delete'])){
     <title>Week 1</title>
 </head>
 <body>
-    <h1 class="text-center"> List karyawan </h1>
+    <h1 class="text-center"> Office-Employee </h1>
 <table class="table mx-auto table-dark mt-2 w-50">
   <thead>
     <tr>
       <th scope="col">No</th>
+      <th scope="col">Nama</th>
+      <th scope="col">Jabatan</th>
+      <th scope="col">Usia</th>
       <th scope="col">Office</th>
-      <th scope="col">Employee</th>
-     
+      <th scope="col">Delete</th>
+      <th scope="col">Edit</th>
     </tr>
   </thead>
   <tbody>
@@ -38,39 +44,43 @@ if(isset($_GET['delete'])){
       echo"
         <tr>    
 
-        <td>".$_SESSION['listkaryawan']->nama."</td>
-        <td>".$karyawan->nama."</td>
-        <td>".$karyawan->jabatan."</td>
-        <td>".$karyawan->usia."</td>
-        <td><a href='view.php?delete=".$index."'><button class='btn btn-primary'> Delete </button></a></td>
+        <td>".$index."</td>
+        <td>".$mix->employeeid."</td>
+        <td>".$mix->officeid."</td>
+        
+        <td><a href='mixview.php?delete=".$index."'><button class='btn btn-primary'> Delete </button></a></td>
         </tr>
         ";
     }
     ?>
   </tbody>
 </table> 
-<h1 class="text-center mt-2"> Tambah Karyawan </h1>
-<form method="POST" action="mixview.php" class="mx-auto  mt-2 w-50">
 
- <div class="form-group col-md-4">
-      <label for="inputkaryawanid">Karyawan</label>
-      <select id="inputkaryawanid" class="form-control">
+<h1 class="text-center mt-2"> Tambah Office-Employee </h1>
+<form method="POST" action="mixview.php" class="mx-auto  mt-2 w-50">
+ <div class="form-group col-md-4 mt-3 mb-3 mx-auto text-center">
+      <label for="employeeid">Karyawan</label>
+      <select name="employeeid" class="form-select" aria-label="Default select example">
       <?php  foreach(index() as $index=>$karyawan):?>
-        <option><?=$karyawan->nama?></option>
-  
+        <option value="<?=$index?>"><?=$karyawan->nama?></option>
     <?php endforeach; ?>
+</select>
        
     </div>
 
- 
-       
- 
+
+
+ <div class="mt-3 mb-3 mx-auto text-center form-group col-md-4">
+      <label for="officeid">Office</label>
+      <select name="officeid" class="form-select" aria-label="Default select example">
+      <?php  foreach(indexoff() as $index=>$office):?>
+        <option value="<?=$index?>"><?=$office->name?></option>
+    <?php endforeach; ?>
+</select>      
+    </div>
+
 
   <button type="submit" name="submit" class="text-center d-block mx-auto btn btn-primary">Submit</button>
 </form>
-<?php  foreach(index() as $index=>$karyawan):?>
-      <?= 'a' ?>
-  
-    <?php endforeach; ?>
 </body>
 </html>
