@@ -1,3 +1,5 @@
+<?include_once("controllers.php")?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

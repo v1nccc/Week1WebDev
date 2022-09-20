@@ -1,6 +1,6 @@
 <?php 
-include("modeloffice.php");
-session_start();
+
+
 if(!isset($_SESSION['listoffice'])){
 $_SESSION['listoffice'] = array();
 }
@@ -23,6 +23,12 @@ return $_SESSION['listoffice'];
 
 function deleteoff($id){
     unset($_SESSION['listoffice'][$id]);
+ 
+    foreach(indexmix() as $index=>$mix)
+    {
+    if($_SESSION['listmix'][$index]->officeid == $id)
+    unset($_SESSION['listmix'][$index]);
+}
 }
 
 ?>

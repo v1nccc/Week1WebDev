@@ -1,6 +1,5 @@
 <?php 
-include("modelmix.php");
-session_start();
+
 if(!isset($_SESSION['listmix'])){
 $_SESSION['listmix'] = array();
 }

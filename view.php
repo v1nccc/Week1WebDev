@@ -1,6 +1,6 @@
 <?php
 require("header.php");
-require("controller.php");
+require("controllers.php");
 if(isset($_POST['submit'])){
   insert();
 }
@@ -29,6 +29,7 @@ if(isset($_GET['delete'])){
       <th scope="col">Jabatan</th>
       <th scope="col">Usia</th>
       <th scope="col">Delete</th>
+      <th scope="col">Edit</th>
     </tr>
   </thead>
   <tbody>
@@ -43,6 +44,7 @@ if(isset($_GET['delete'])){
         <td>".$karyawan->jabatan."</td>
         <td>".$karyawan->usia."</td>
         <td><a href='view.php?delete=".$index."'><button class='btn btn-primary'> Delete </button></a></td>
+        <td><a href='editemployee.php?edit=".$index."'><button class='btn btn-primary'> Edit </button></a></td>
         </tr>
         ";
     }

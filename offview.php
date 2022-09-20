@@ -1,6 +1,6 @@
 <?php
 require("header.php");
-require("offcontroller.php");
+require("controllers.php");
 if(isset($_POST['submit'])){
   insertoff();
 }

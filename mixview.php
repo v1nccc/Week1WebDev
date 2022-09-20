@@ -1,16 +1,15 @@
 <?php
+require("controllers.php");
 require("header.php");
-require("mixcontroller.php");
-require("offcontroller.php");
-require("controller.php");
-
 
 if(isset($_POST['submit'])){
   insertmix();
 }
 if(isset($_GET['delete'])){
-  delete($_GET['delete']);
+  deletemix($_GET['delete']);
 }
+
+
 
 ?>
 
@@ -33,6 +32,9 @@ if(isset($_GET['delete'])){
       <th scope="col">Jabatan</th>
       <th scope="col">Usia</th>
       <th scope="col">Office</th>
+      <th scope="col">Office Adress</th>
+      <th scope="col">City</th>
+      <th scope="col">Office Phone</th>
       <th scope="col">Delete</th>
       <th scope="col">Edit</th>
     </tr>
@@ -45,10 +47,17 @@ if(isset($_GET['delete'])){
         <tr>    
 
         <td>".$index."</td>
-        <td>".$mix->employeeid."</td>
-        <td>".$mix->officeid."</td>
+        <td>".$_SESSION['listkaryawan'][$mix->employeeid]->nama."</td>
+        <td>".$_SESSION['listkaryawan'][$mix->employeeid]->jabatan."</td>
+        <td>".$_SESSION['listkaryawan'][$mix->employeeid]->usia."</td>
+        <td>".$_SESSION['listoffice'][$mix->officeid]->name."</td>
+        <td>".$_SESSION['listoffice'][$mix->officeid]->adress."</td>
+        <td>".$_SESSION['listoffice'][$mix->officeid]->city."</td>
+        <td>".$_SESSION['listoffice'][$mix->officeid]->phone."</td>
+
         
         <td><a href='mixview.php?delete=".$index."'><button class='btn btn-primary'> Delete </button></a></td>
+        <td><a href='mixview.php?edit=".$index."'><button class='btn btn-primary'> Edit </button></a></td>
         </tr>
         ";
     }

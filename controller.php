@@ -1,6 +1,6 @@
 <?php 
-include("model.php");
-session_start();
+
+
 if(!isset($_SESSION['listkaryawan'])){
 $_SESSION['listkaryawan'] = array();
 }
@@ -21,6 +21,10 @@ return $_SESSION['listkaryawan'];
 
 function delete($id){
     unset($_SESSION['listkaryawan'][$id]);
+    foreach(indexmix() as $index=>$mix)
+    {
+    if($_SESSION['listmix'][$index]->employeeid == $id)
+    unset($_SESSION['listmix'][$index]);
 }
-
+}
 ?>
