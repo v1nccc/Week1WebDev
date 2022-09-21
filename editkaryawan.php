@@ -1,9 +1,6 @@
 <?php
-
 require("header.php");
 require("controllers.php");
-
-
 ?>
 
 <!DOCTYPE html>
