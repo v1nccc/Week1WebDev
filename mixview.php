@@ -57,7 +57,7 @@ if(isset($_GET['delete'])){
 
         
         <td><a href='mixview.php?delete=".$index."'><button class='btn btn-primary'> Delete </button></a></td>
-        <td><a href='mixview.php?edit=".$index."'><button class='btn btn-primary'> Edit </button></a></td>
+        <td><a href='mixedit.php?edit=".$index."'><button class='btn btn-primary'> Edit </button></a></td>
         </tr>
         ";
     }
@@ -65,11 +65,11 @@ if(isset($_GET['delete'])){
   </tbody>
 </table> 
 
-<h1 class="text-center mt-2"> Tambah Office-Employee </h1>
+<h1 class="mt-5 text-center mt-2"> Tambah Office-Employee </h1>
 <form method="POST" action="mixview.php" class="mx-auto  mt-2 w-50">
  <div class="form-group col-md-4 mt-3 mb-3 mx-auto text-center">
       <label for="employeeid">Karyawan</label>
-      <select name="employeeid" class="form-select" aria-label="Default select example">
+      <select required name="employeeid" class="form-select" aria-label="Default select example">
       <?php  foreach(index() as $index=>$karyawan):?>
         <option value="<?=$index?>"><?=$karyawan->nama?></option>
     <?php endforeach; ?>
@@ -81,7 +81,7 @@ if(isset($_GET['delete'])){
 
  <div class="mt-3 mb-3 mx-auto text-center form-group col-md-4">
       <label for="officeid">Office</label>
-      <select name="officeid" class="form-select" aria-label="Default select example">
+      <select required name="officeid" class="form-select" aria-label="Default select example">
       <?php  foreach(indexoff() as $index=>$office):?>
         <option value="<?=$index?>"><?=$office->name?></option>
     <?php endforeach; ?>

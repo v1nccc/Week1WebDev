@@ -2,7 +2,7 @@
 require("controllers.php");
 require("header.php");
 
-if(isset($_POST['submit'])){
+if(isset($_POST['edit'])){
   insertmix();
 }
 if(isset($_GET['delete'])){

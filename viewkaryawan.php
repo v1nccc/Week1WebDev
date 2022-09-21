@@ -54,7 +54,7 @@ if(isset($_GET['delete'])){
     ?>
   </tbody>
 </table> 
-<h1 class="text-center mt-2"> Tambah Karyawan </h1>
+<h1 class="mt-5 text-center mt-2"> Tambah Karyawan </h1>
 <form method="POST" action="viewkaryawan.php" class="mx-auto  mt-2 w-50">
   <div class="mb-3">
     <label for="nama" class="form-label">Nama</label>
