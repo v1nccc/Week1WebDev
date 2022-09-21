@@ -8,6 +8,9 @@ if(isset($_POST['submit'])){
 if(isset($_GET['delete'])){
   deletemix($_GET['delete']);
 }
+if(isset($_POST['edit'])){
+  editmix(($_GET['edit']));
+}
 
 
 

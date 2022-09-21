@@ -1,16 +1,6 @@
 <?php
 require("controllers.php");
 require("header.php");
-
-if(isset($_POST['edit'])){
-  insertmix();
-}
-if(isset($_GET['delete'])){
-  deletemix($_GET['delete']);
-}
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -25,14 +15,9 @@ if(isset($_GET['delete'])){
 <body>
 
 <h1 class="text-center mt-2"> Edit Office-Employee </h1>
-<form method="POST" action="mixview.php" class="mx-auto  mt-2 w-50">
+<form method="POST" action="mixview.php?edit=<?= $_GET['edit']?>" class="mx-auto  mt-2 w-50">
  <div class="form-group col-md-4 mt-3 mb-3 mx-auto text-center">
-      <label for="employeeid">Karyawan</label>
-      <select name="employeeid" class="form-select" aria-label="Default select example">
-      <?php  foreach(index() as $index=>$karyawan):?>
-        <option value="<?=$index?>"><?=$karyawan->nama?></option>
-    <?php endforeach; ?>
-</select>
+      <p>Karyawan: <?= $_SESSION['listkaryawan'][$_GET['edit']]->nama?></p>
        
     </div>
 
@@ -42,13 +27,13 @@ if(isset($_GET['delete'])){
       <label for="officeid">Office</label>
       <select name="officeid" class="form-select" aria-label="Default select example">
       <?php  foreach(indexoff() as $index=>$office):?>
-        <option value="<?=$index?>"><?=$office->name?></option>
+        <option required value="<?=$index?>"><?=$office->name?></option>
     <?php endforeach; ?>
 </select>      
     </div>
 
 
-  <button type="submit" name="submit" class="text-center d-block mx-auto btn btn-primary">Submit</button>
+  <button type="submit" name="edit" class="text-center d-block mx-auto btn btn-primary">Submit</button>
 </form>
 </body>
 </html>

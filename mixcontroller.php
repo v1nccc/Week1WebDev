@@ -23,4 +23,8 @@ function deletemix($id){
     unset($_SESSION['listmix'][$id]);
 }
 
+function editmix($id){
+        $_SESSION['listmix'][$id]->officeid= $_POST['officeid'];
+        
+}
 ?>
